@@ -1,0 +1,5 @@
+<%= simple_form_for task, html: { id: dom_id(task) } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

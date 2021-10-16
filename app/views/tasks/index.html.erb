@@ -1,0 +1,28 @@
+<div class="row vh-100">
+  <%= turbo_stream_from "tasks" %>
+  <p id="notice">
+    <%= notice %>
+  </p>
+  <div class="col-2 border-right">
+    Navigation
+  </div>
+  <div class="col-4 border-right">
+    <h5 class="text-muted font-weight-bold">Tasks</h5>  
+    <%= turbo_frame_tag "task_form" do %>
+      <%= render "tasks/form" , task: Task.new %>
+    <% end %>
+    <hr />
+    <%= turbo_frame_tag "tasks" do %>
+      <%= render @tasks %>
+    <% end %>
+  </div>
+  <div class="col-6">
+    <%= turbo_frame_tag "task_detail" do %>
+      <% if @task.present? && !@task.new_record? %>
+        <%= render partial: 'tasks/detail' %>
+      <% else %>
+        <p>Task details will appear here</p>
+      <% end %>  
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<%= turbo_frame_tag dom_id(task) do %>
+  <%= link_to task_path(task), data: { controller: "task", task_url_value: task_url(task), action: "click->task#showDetail" } do %>
+    <div class="mt-2 border-bottom">
+      <h5><%= task.title %></h5>
+      <p><%= task.description %></p>
+    </div>
+  <% end %>
+<% end %>
