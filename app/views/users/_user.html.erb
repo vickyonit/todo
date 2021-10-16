@@ -1,0 +1,9 @@
+<%= turbo_frame_tag dom_id(user) do %>
+  <%= link_to user_path(user), data: { controller: "user", user_url_value: user_url(user), action: "click->user#showDetail" } do %>
+    <div class="mt-2 border-bottom">
+      <h5><%= user.name %></h5>
+      <p><%= user.email %></p>
+      <p><%= user.phone_number %></p>
+    </div>
+  <% end %>
+<% end %>

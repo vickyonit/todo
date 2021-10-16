@@ -1,5 +1,5 @@
 <div class="row vh-100">
-  <%= turbo_stream_from "tasks" %>
+  <%= turbo_stream_from "users" %>
   <p id="notice">
     <%= notice %>
   </p>
@@ -7,21 +7,21 @@
     <%= render partial: 'shared/nav' %>
   </div>
   <div class="col-4 border-right">
-    <h5 class="text-muted font-weight-bold">Tasks</h5>  
+    <h5 class="text-muted font-weight-bold">users</h5>  
     <%= turbo_frame_tag "task_form" do %>
-      <%= render "tasks/form" , task: Task.new %>
+      <%= render "users/form" , task: Task.new %>
     <% end %>
     <hr />
-    <%= turbo_frame_tag "tasks" do %>
-      <%= render @tasks %>
+    <%= turbo_frame_tag "users" do %>
+      <%= render @users %>
     <% end %>
   </div>
   <div class="col-6">
     <%= turbo_frame_tag "task_detail" do %>
       <% if @task.present? && !@task.new_record? %>
-        <%= render partial: 'tasks/detail' %>
+        <%= render partial: 'users/detail' %>
       <% else %>
-        <p>Task details will appear here</p>
+        <p>User details will appear here</p>
       <% end %>  
     <% end %>
   </div>
